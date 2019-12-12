@@ -11,6 +11,9 @@ import 'rxjs/add/operator/catch';
 export class AuthService {
 
   constructor(public afAuth: AngularFireAuth) { }
+  onLOginGoogle(){
+    return this.afAuth.auth.signInWithPopup( new  firebase.auth.GoogleAuthProvider());
+  }
   onRegisterUser(email: string, pass: string) {
     return new Promise((resolve, reyect) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
